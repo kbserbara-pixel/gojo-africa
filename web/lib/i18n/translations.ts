@@ -225,6 +225,115 @@ export const translations: Record<Locale, Dict> = {
       bookedBody: "Your booking is now {status}.",
       error: "Could not create the booking. Check the fields and that the backend is running.",
     },
+    footer: {
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      rights: "© {year} Gojo Africa. All rights reserved.",
+    },
+    legalPrivacyPage: {
+      title: "Privacy Policy",
+      updated: "Last updated: June 24, 2026",
+      intro:
+        'Gojo Africa ("Gojo Africa", "we", "us") operates a housing marketplace and related services connecting renters, landlords, agents, service providers, and the Ethiopian diaspora. This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using Gojo Africa, you agree to the practices described here.',
+      sections: {
+        collect: {
+          title: "Information We Collect",
+          body: "We collect information you provide directly, such as your name, phone number, email address, password, role (renter, landlord, agent, or service provider), and any details you add to a property listing, housemate profile, or service booking. We also collect information generated through your use of the platform, including messages, verification requests, trust scores, and basic usage data such as device type and IP address.",
+        },
+        use: {
+          title: "How We Use Your Information",
+          body: "We use your information to operate the marketplace: creating and managing your account, matching you with properties, housemates, or service providers, verifying listings and identities, processing diaspora concierge requests, generating neighborhood and analytics insights, and communicating with you about your account or activity. We do not sell your personal information to third parties.",
+        },
+        location: {
+          title: "Location & Property Data",
+          body: "Property listings include address and neighborhood information that we use to power search, neighborhood intelligence scores (safety, utilities, transit, schools, cost of living), and AI-based recommendations. This data is sourced from listing owners and, where available, third-party or public neighborhood datasets.",
+        },
+        sharing: {
+          title: "Sharing of Information",
+          body: "We share information with other users only as needed for the service to work – for example, sharing your contact details with a landlord when you express interest in a property, or with a housemate match you choose to connect with. We may share information with service providers who help us operate the platform (such as cloud hosting and payment processors), and where required by law.",
+        },
+        security: {
+          title: "Data Storage & Security",
+          body: "Your data is stored on secured cloud infrastructure with access controls in place. While we take reasonable steps to protect your information, no system is completely secure, and we cannot guarantee absolute security of data transmitted to or from the platform.",
+        },
+        rights: {
+          title: "Your Rights & Choices",
+          body: "You can review and update your account information at any time, and you may request deletion of your account by contacting us. You may also decline to provide optional information, such as email address, though this may limit some features.",
+        },
+        children: {
+          title: "Children's Privacy",
+          body: "Gojo Africa is not directed at children under 18, and we do not knowingly collect information from them. If you believe a child has created an account, please contact us so we can remove it.",
+        },
+        changes: {
+          title: "Changes to This Policy",
+          body: 'We may update this Privacy Policy from time to time as the platform evolves. We will update the "last updated" date above when changes are made, and significant changes will be communicated through the platform.',
+        },
+        contact: {
+          title: "Contact Us",
+          body: "If you have questions about this Privacy Policy or how your information is handled, contact us at support@gojoafrica.com.",
+        },
+      },
+    },
+    legalTermsPage: {
+      title: "Terms of Service",
+      updated: "Last updated: June 24, 2026",
+      intro:
+        'These Terms of Service ("Terms") govern your access to and use of Gojo Africa, a housing marketplace and related services for Ethiopia and the Ethiopian diaspora. By creating an account or using the platform, you agree to these Terms.',
+      sections: {
+        acceptance: {
+          title: "Acceptance of Terms",
+          body: "By accessing or using Gojo Africa, you confirm that you are at least 18 years old and able to enter into a binding agreement, and that you agree to these Terms and our Privacy Policy.",
+        },
+        service: {
+          title: "Description of Service",
+          body: "Gojo Africa provides a property marketplace, AI-powered house search, neighborhood intelligence, property verification, housemate matching, diaspora concierge services, and a home services marketplace. Features may be added, changed, or removed over time.",
+        },
+        accounts: {
+          title: "User Accounts",
+          body: "You are responsible for keeping your account credentials secure and for all activity under your account. You agree to provide accurate information when registering and to update it as needed. We may suspend or terminate accounts that violate these Terms.",
+        },
+        listings: {
+          title: "Listings & Marketplace Conduct",
+          body: "Landlords and agents are responsible for the accuracy of their listings, including price, availability, and property condition. Gojo Africa performs AI and human verification to reduce fraud and scams, but does not guarantee that every listing is accurate or available. Users should exercise reasonable judgment, including in-person or video verification, before making payments or commitments.",
+        },
+        diaspora: {
+          title: "Diaspora & Remote Transactions",
+          body: "Diaspora concierge features (virtual tours, video inspections, remote signing) are provided to assist users transacting from abroad, but Gojo Africa is not a party to the underlying rental or sale agreement between users, and is not responsible for disputes arising from those agreements.",
+        },
+        verification: {
+          title: "Verification & Trust Scores",
+          body: "Trust scores and verification badges reflect our assessment based on available information at a point in time. They are intended as a helpful signal, not a guarantee of a user's or property's legitimacy, condition, or reliability.",
+        },
+        payments: {
+          title: "Payments & Fees",
+          body: "Some services on the platform may involve fees, which will be clearly disclosed before you commit to them. Gojo Africa is not a bank or payment processor; any payments between users for rent, deposits, or services are the responsibility of those users.",
+        },
+        prohibited: {
+          title: "Prohibited Conduct",
+          body: "You may not use Gojo Africa to post fraudulent or misleading listings, harass other users, discriminate unlawfully, scrape or misuse platform data, or attempt to interfere with the platform's security or operation.",
+        },
+        liability: {
+          title: "Disclaimers & Limitation of Liability",
+          body: 'Gojo Africa is provided "as is" without warranties of any kind. To the fullest extent permitted by law, Gojo Africa is not liable for indirect, incidental, or consequential damages arising from your use of the platform, including disputes between users.',
+        },
+        termination: {
+          title: "Termination",
+          body: "You may stop using Gojo Africa at any time. We may suspend or terminate access to the platform for violations of these Terms or for conduct that we believe harms other users or the platform.",
+        },
+        law: {
+          title: "Governing Law",
+          body: "These Terms are governed by the laws of Ethiopia, without regard to conflict-of-law principles, unless otherwise required by applicable local law.",
+        },
+        changes: {
+          title: "Changes to These Terms",
+          body: "We may update these Terms as the platform evolves. Continued use of Gojo Africa after changes take effect constitutes acceptance of the updated Terms.",
+        },
+        contact: {
+          title: "Contact Us",
+          body: "If you have questions about these Terms, contact us at support@gojoafrica.com.",
+        },
+      },
+    },
   },
 
   am: {
@@ -433,6 +542,115 @@ export const translations: Record<Locale, Dict> = {
       bookedTitle: "ጥያቄው ገብቷል",
       bookedBody: "የእርስዎ ጥያቄ ደረጃው {status} ሆኗል።",
       error: "ጥያቄውን ማስገባት አልተቻለም። መረጃውን እና አገልጋዩ እየሰራ መሆኑን ያረጋግጡ።",
+    },
+    footer: {
+      privacy: "የግላዊነት መመሪያ",
+      terms: "የአገልግሎት ውሎች",
+      rights: "© {year} ጎጆ አፍሪካ። መብቱ በህግ የተጠበቀ ነው።",
+    },
+    legalPrivacyPage: {
+      title: "የግላዊነት መመሪያ",
+      updated: "መጨረሻ የተሻሻለበት ቀን፦ ሰኔ 24፣ 2026",
+      intro:
+        "ጎጆ አፍሪካ (\"ጎጆ አፍሪካ\"፣ \"እኛ\") ተከራዮችን፣ አከራዮችን፣ ወኪሎችን፣ የአገልግሎት ሰጪዎችን እና የኢትዮጵያ ዲያስፖራን የሚያገናኝ የቤት ገበያና ተያያዥ አገልግሎቶችን ያቀርባል። ይህ የግላዊነት መመሪያ ምን አይነት መረጃ እንደምንሰበስብ፣ እንዴት እንደምንጠቀምበት እና ያሉዎትን ምርጫዎች ያብራራል። ጎጆ አፍሪካን በመጠቀምዎ በዚህ የተገለጹትን አሰራሮች ተቀብለዋል ማለት ነው።",
+      sections: {
+        collect: {
+          title: "የምንሰበስበው መረጃ",
+          body: "በቀጥታ የሚሰጡንን መረጃ እንሰበስባለን፤ ይህም ስም፣ የስልክ ቁጥር፣ ኢሜይል አድራሻ፣ የመግቢያ ቁጥር፣ ሚና (ተከራይ፣ አከራይ፣ ወኪል ወይም የአገልግሎት ሰጪ)፣ እና ለንብረት ምዝገባ፣ ለቤት ጓደኛ መገለጫ ወይም ለአገልግሎት ማስያዝ የሚያክሉትን ዝርዝሮች ያካትታል። እንዲሁም ከመተግበሪያው አጠቃቀም የሚገኙ መረጃዎችን እንሰበስባለን፤ እነዚህም መልዕክቶች፣ የማረጋገጫ ጥያቄዎች፣ የእምነት ነጥቦች እና እንደ የመሣሪያ አይነትና IP አድራሻ ያሉ መሰረታዊ የአጠቃቀም መረጃዎችን ይጨምራል።",
+        },
+        use: {
+          title: "መረጃዎን እንዴት እንጠቀማለን",
+          body: "መረጃዎን ገበያውን ለማስኬድ እንጠቀምበታለን፦ መለያዎን ለመክፈትና ለማስተዳደር፣ ከንብረቶች፣ ከቤት ጓደኞች ወይም ከአገልግሎት ሰጪዎች ጋር ለማገናኘት፣ ንብረቶችንና መታወቂያዎችን ለማረጋገጥ፣ የዲያስፖራ አገልግሎት ጥያቄዎችን ለማስኬድ፣ የአካባቢ እና የትንታኔ ግንዛቤዎችን ለማመንጨት፣ እና ከመለያዎ ወይም ከእንቅስቃሴዎ ጋር በተያያዘ ለማግባባት ነው። የግል መረጃዎን ለሶስተኛ ወገኖች አንሸጥም።",
+        },
+        location: {
+          title: "የአካባቢና የንብረት መረጃ",
+          body: "የንብረት ምዝገባዎች አድራሻና አካባቢ መረጃን ያካትታሉ፤ እነዚህንም ለፍለጋ፣ ለአካባቢ ግንዛቤ ነጥቦች (ደህንነት፣ መሰረተ-ልማት፣ ትራንስፖርት፣ ትምህርት ቤቶች፣ የኑሮ ውድነት) እና ለኤ.አይ. ምክሮች እንጠቀምባቸዋለን። ይህ መረጃ ከንብረት ባለቤቶችና፣ ሲገኝ፣ ከሶስተኛ ወገን ወይም ከህዝባዊ የአካባቢ ዳታ ምንጮች የተገኘ ነው።",
+        },
+        sharing: {
+          title: "የመረጃ መጋራት",
+          body: "መረጃን ከሌሎች ተጠቃሚዎች ጋር የምናጋራው አገልግሎቱ እንዲሰራ አስፈላጊ ሲሆን ብቻ ነው፤ ለምሳሌ በንብረት ላይ ፍላጎት ሲያሳዩ የመገናኛ ዝርዝርዎን ለአከራይ ማጋራት፣ ወይም እርስዎ ለመገናኘት የመረጧቸውን የቤት ጓደኛ ጋር ማጋራት። መድረኩን እንድናስኬድ የሚረዱንን አገልግሎት ሰጪዎች (እንደ ክላውድ ማከማቻና የክፍያ አስፈፃሚዎች) ጋርም፣ እና በህግ ሲጠየቅ መረጃን እናጋራለን።",
+        },
+        security: {
+          title: "የመረጃ ማከማቻና ደህንነት",
+          body: "የእርስዎ መረጃ በተጠበቀ ክላውድ መሰረተ-ልማት ላይ የመግቢያ ቁጥጥሮች ባለበት ይከማቻል። መረጃዎን ለመጠበቅ ምክንያታዊ እርምጃዎችን ብንወስድም፣ ምንም ስርዓት ሙሉ በሙሉ ደህንነቱ የተጠበቀ ስላልሆነ ወደ መድረኩ የሚተላለፍ ወይም ከመድረኩ የሚወጣ መረጃ ፍጹም ደህንነት እንዳለው ማረጋገጥ አንችልም።",
+        },
+        rights: {
+          title: "የእርስዎ መብቶችና ምርጫዎች",
+          body: "የመለያ መረጃዎን በማንኛውም ጊዜ መመልከትና ማስተካከል ይችላሉ፣ እንዲሁም መለያዎ እንዲሰረዝ በማናገረን መጠየቅ ይችላሉ። እንደ ኢሜይል አድራሻ ያሉ አማራጭ መረጃዎችን ላለመስጠት መምረጥ ይችላሉ፤ ይህ ግን አንዳንድ ባህሪያትን ሊገድብ ይችላል።",
+        },
+        children: {
+          title: "የልጆች ግላዊነት",
+          body: "ጎጆ አፍሪካ ከ18 ዓመት በታች ለሆኑ ልጆች የተዘጋጀ አይደለም፣ እና ከእነሱ መረጃን ሆን ብለን አንሰበስብም። ልጅ መለያ መከፈቱን ካመኑ፣ እንድናስወግደው እኛን ያነጋግሩን።",
+        },
+        changes: {
+          title: "በዚህ መመሪያ ላይ የሚደረጉ ለውጦች",
+          body: "መድረኩ እያደገ ሲሄድ ይህን የግላዊነት መመሪያ ከጊዜ ወደ ጊዜ ልናሻሽለው እንችላለን። ለውጦች ሲደረጉ ከላይ ያለውን \"መጨረሻ የተሻሻለበት ቀን\" እናዘምናለን፣ ጉልህ ለውጦችም በመድረኩ ይነገራሉ።",
+        },
+        contact: {
+          title: "ያግኙን",
+          body: "ይህን የግላዊነት መመሪያ ወይም መረጃዎ እንዴት እንደሚያያዝ በተመለከተ ጥያቄ ካለዎት በ support@gojoafrica.com ያግኙን።",
+        },
+      },
+    },
+    legalTermsPage: {
+      title: "የአገልግሎት ውሎች",
+      updated: "መጨረሻ የተሻሻለበት ቀን፦ ሰኔ 24፣ 2026",
+      intro:
+        "እነዚህ የአገልግሎት ውሎች (\"ውሎች\") ለኢትዮጵያና ለኢትዮጵያ ዲያስፖራ የተዘጋጀውን የቤት ገበያና ተያያዥ አገልግሎቶችን የሚያቀርበውን ጎጆ አፍሪካን መድረክ መጠቀምዎን ይመለከታሉ። መለያ በመክፈት ወይም መድረኩን በመጠቀም በዚህ ውስጥ የተገለጹትን ውሎች ተቀብለዋል ማለት ነው።",
+      sections: {
+        acceptance: {
+          title: "ውሎችን መቀበል",
+          body: "ጎጆ አፍሪካን በመጠቀምዎ ቢያንስ የ18 ዓመት ዕድሜ እንዳለዎት፣ አስገዳጅ ስምምነት ለመግባት የሚችሉ መሆንዎን፣ እና በዚህ ውል እና በግላዊነት መመሪያችን መስማማትዎን ያረጋግጣሉ።",
+        },
+        service: {
+          title: "የአገልግሎት መግለጫ",
+          body: "ጎጆ አፍሪካ የንብረት ገበያ፣ በኤ.አይ. የተደገፈ የቤት ፍለጋ፣ የአካባቢ ግንዛቤ፣ የንብረት ማረጋገጫ፣ የቤት ጓደኛ ግጥሚያ፣ የዲያስፖራ ልዩ አገልግሎቶች እና የቤት አገልግሎቶች ገበያን ያቀርባል። ባህሪያት ከጊዜ ወደ ጊዜ ሊጨመሩ፣ ሊቀየሩ ወይም ሊወገዱ ይችላሉ።",
+        },
+        accounts: {
+          title: "የተጠቃሚ መለያዎች",
+          body: "የመለያ መግቢያ ዝርዝሮችዎን ደህንነት መጠበቅና በመለያዎ ስር የሚደረግ ማንኛውም እንቅስቃሴ የእርስዎ ኃላፊነት ነው። ሲመዘገቡ ትክክለኛ መረጃ መስጠትና እንደ አስፈላጊነቱ ማዘመን ይጠበቅባቸዋል። ይህን ውል የሚጥሱ መለያዎችን እናግድ ወይም እናቋርጥ ይሆናል።",
+        },
+        listings: {
+          title: "ምዝገባዎችና የገበያ ምግባር",
+          body: "አከራዮችና ወኪሎች የምዝገባቸውን ትክክለኛነት፣ ዋጋ፣ ተገኝነትና የንብረት ሁኔታን ጨምሮ ኃላፊነት ይወስዳሉ። ጎጆ አፍሪካ ማጭበርበርንና ስርቆትን ለመቀነስ በኤ.አይ. እና በሰው ኃይል ማረጋገጫ ያደርጋል፣ ሆኖም ሁሉም ምዝገባ ትክክለኛ ወይም የተገኘ መሆኑን አይተውም። ተጠቃሚዎች ክፍያ ወይም ስምምነት ከመግባት በፊት በአካል ወይም በቪዲዮ ማረጋገጥ የመሰለ ምክንያታዊ ጥንቃቄ ማድረግ አለባቸው።",
+        },
+        diaspora: {
+          title: "የዲያስፖራና የርቀት ግብይቶች",
+          body: "የዲያስፖራ ልዩ አገልግሎቶች (ምናባዊ ጉብኝት፣ የቪዲዮ ምርመራ፣ የርቀት ፊርማ) ከውጭ ሀገር ግብይት የሚፈጽሙ ተጠቃሚዎችን ለመርዳት የቀረቡ ናቸው፣ ሆኖም ጎጆ አፍሪካ በተጠቃሚዎች መካከል ባለው የኪራይ ወይም የሽያጭ ስምምነት ላይ ወገን አይደለም፣ እና ከእነዚህ ስምምነቶች ለሚነሱ አለመግባባቶች ኃላፊነት የለውም።",
+        },
+        verification: {
+          title: "ማረጋገጫና የእምነት ነጥቦች",
+          body: "የእምነት ነጥቦችና የማረጋገጫ ምልክቶች በተወሰነ ጊዜ ላይ ባለው መረጃ ላይ የተመሰረተ የእኛ ግምገማ ያንፀባርቃሉ። ጠቃሚ ምልክት ለመሆን የታሰቡ ናቸው፣ የተጠቃሚ ወይም የንብረት ህጋዊነት፣ ሁኔታ ወይም አስተማማኝነት ማረጋገጫ አይደሉም።",
+        },
+        payments: {
+          title: "ክፍያዎችና ክፍያዎች",
+          body: "በመድረኩ ላይ ያሉ አንዳንድ አገልግሎቶች ክፍያ ሊያስከፍሉ ይችላሉ፤ ይህም ቀድሞ በግልጽ ይነገራል። ጎጆ አፍሪካ ባንክ ወይም የክፍያ አስፈፃሚ አይደለም፤ በተጠቃሚዎች መካከል ለኪራይ፣ ለቅድሚያ ክፍያ ወይም ለአገልግሎት የሚደረግ ክፍያ የእነዚያ ተጠቃሚዎች ኃላፊነት ነው።",
+        },
+        prohibited: {
+          title: "የተከለከሉ ድርጊቶች",
+          body: "ጎጆ አፍሪካን ለማጭበርበር ወይም አሳሳች ምዝገባ ለማውጣት፣ ሌሎች ተጠቃሚዎችን ለማስቸገር፣ ህገ-ወጥ መድልዎ ለማድረግ፣ የመድረኩን ዳታ ለመስለብ ወይም ለማላሌት፣ ወይም የመድረኩን ደህንነት ወይም ስራ ለማወክ መጠቀም አይፈቀድም።",
+        },
+        liability: {
+          title: "ማስታወቂያዎችና የተወሰነ ኃላፊነት",
+          body: "ጎጆ አፍሪካ \"እንዳለ\" ምንም ዓይነት ማረጋገጫ ሳይኖር ይቀርባል። በህግ በሚፈቀደው መጠን፣ ጎጆ አፍሪካ ከመድረኩ አጠቃቀም ለሚነሱ ቀጥተኛ ያልሆኑ፣ ድንገተኛ ወይም ተከታይ ጉዳቶች፣ በተጠቃሚዎች መካከል ለሚነሱ አለመግባባቶችን ጨምሮ ኃላፊነት የለውም።",
+        },
+        termination: {
+          title: "ስምምነት ማቋረጥ",
+          body: "ጎጆ አፍሪካን በማንኛውም ጊዜ መጠቀም ማቆም ይችላሉ። ይህን ውል የሚጥሱ ወይም ሌሎች ተጠቃሚዎችን ወይም መድረኩን ይጎዳሉ ብለን የምናምንባቸውን ድርጊቶች ለፈጸሙ መለያዎች ወደ መድረኩ መግባትን እናግድ ወይም እናቋርጥ ይሆናል።",
+        },
+        law: {
+          title: "ተፈጻሚ ህግ",
+          body: "እነዚህ ውሎች በኢትዮጵያ ህግ ይመራሉ፣ የህግ ግጭት መርሆዎችን ግምት ውስጥ ሳያስገባ፣ እንደ ተፈጻሚ የአካባቢ ህግ ሌላ ካልጠየቀ በስተቀር።",
+        },
+        changes: {
+          title: "በእነዚህ ውሎች ላይ የሚደረጉ ለውጦች",
+          body: "መድረኩ እያደገ ሲሄድ እነዚህን ውሎች ልናሻሽላቸው እንችላለን። ለውጦች ከተደረጉ በኋላ ጎጆ አፍሪካን መጠቀም መቀጠል የተሻሻሉትን ውሎች መቀበል ማለት ነው።",
+        },
+        contact: {
+          title: "ያግኙን",
+          body: "ስለ እነዚህ ውሎች ጥያቄ ካለዎት በ support@gojoafrica.com ያግኙን።",
+        },
+      },
     },
   },
 };

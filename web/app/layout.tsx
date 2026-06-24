@@ -29,6 +29,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </header>
           <main className="px-8 py-6">{children}</main>
+          <footer className="flex flex-col sm:flex-row items-center justify-between gap-2 px-8 py-6 border-t text-sm text-gray-500">
+            <span>{t(locale, "footer.rights", { year: new Date().getFullYear() })}</span>
+            <nav className="flex items-center gap-4">
+              <Link href="/privacy" className="hover:text-gray-700 underline">
+                {t(locale, "footer.privacy")}
+              </Link>
+              <Link href="/terms" className="hover:text-gray-700 underline">
+                {t(locale, "footer.terms")}
+              </Link>
+            </nav>
+          </footer>
         </LanguageProvider>
       </body>
     </html>
