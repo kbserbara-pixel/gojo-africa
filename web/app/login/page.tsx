@@ -5,7 +5,6 @@ import Link from "next/link";
 import { apiPost, apiGetAuth } from "../../lib/api";
 import { saveSession, AuthUser } from "../../lib/auth";
 import { useLanguage } from "../../lib/i18n/LanguageContext";
-import DailyQuoteModal from "../../components/DailyQuoteModal";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,7 +37,6 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-sm mx-auto">
-      <DailyQuoteModal heading={t("dailyQuote.heading")} continueLabel={t("dailyQuote.continue")} />
       <h1 className="text-2xl font-bold text-emerald-800 mb-6">{t("loginPage.title")}</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

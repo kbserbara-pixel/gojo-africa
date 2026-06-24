@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLocale } from "../lib/i18n/server";
 import { t } from "../lib/i18n/translations";
 import Hero from "../components/Hero";
+import DailyQuoteModal from "../components/DailyQuoteModal";
 
 const MODULE_KEYS = [
   "marketplace",
@@ -30,6 +31,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <DailyQuoteModal heading={t(locale, "dailyQuote.heading")} continueLabel={t(locale, "dailyQuote.continue")} />
       <Hero />
       <section className="text-center py-8">
         <h1 className="text-4xl font-bold text-emerald-800">{t(locale, "home.heading")}</h1>
