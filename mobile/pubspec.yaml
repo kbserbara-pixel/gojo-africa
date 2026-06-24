@@ -1,0 +1,25 @@
+name: gojo_africa
+description: Gojo Africa mobile shell -- AI-powered housing ecosystem for Africa.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  http: ^1.2.2
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  generate: true

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f7f9f8;
+  color: #0b1f1a;
+}
+
+/*
+ * Shared button + highlight styles so the green/gold palette stays
+ * consistent across the hero, module cards, and any other CTA rather than
+ * each component picking its own one-off color classes.
+ */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-emerald-700 px-5 py-2.5
+      font-medium text-white shadow-sm transition hover:bg-emerald-800;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center rounded-lg bg-gold-400 px-5 py-2.5
+      font-semibold text-emerald-900 shadow-sm transition hover:bg-gold-500;
+  }
+
+  .card-highlight-accent {
+    @apply border-gold-300 ring-1 ring-gold-200 hover:border-gold-400 hover:shadow-md;
+  }
+
+  .badge-accent {
+    @apply rounded bg-gold-400 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-900;
+  }
+}

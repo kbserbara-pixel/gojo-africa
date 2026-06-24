@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gojo Africa — Pitch Deck</title>
+<style>
+  :root{
+    --bg:#0b1f1a; --panel:#102b23; --accent:#2fd28a; --accent2:#e8b84b;
+    --text:#f3f7f4; --muted:#a9c2b8; --line:#1d4438;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#000;font-family:"Segoe UI",Arial,sans-serif;color:var(--text);}
+  .deck{width:100%;height:100vh;overflow:hidden;position:relative;}
+  .slide{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    display:none;flex-direction:column;justify-content:center;
+    padding:6vh 8vw;background:linear-gradient(135deg,var(--bg),#081813);
+  }
+  .slide.active{display:flex;}
+  .kicker{color:var(--accent2);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;margin-bottom:1rem;font-weight:600;}
+  h1{font-size:3.2rem;margin:0 0 .5rem 0;line-height:1.1;}
+  h2{font-size:2.3rem;margin:0 0 1.2rem 0;color:var(--text);border-left:6px solid var(--accent);padding-left:.6rem;}
+  p{font-size:1.25rem;line-height:1.5;color:var(--muted);max-width:900px;}
+  .tagline{font-size:1.5rem;color:var(--accent);margin-bottom:2rem;}
+  .grid{display:grid;gap:1.2rem;margin-top:1rem;}
+  .cols-2{grid-template-columns:1fr 1fr;}
+  .cols-4{grid-template-columns:1fr 1fr 1fr 1fr;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;}
+  .card h3{margin:0 0 .4rem 0;color:var(--accent);font-size:1.1rem;}
+  .card p{font-size:.95rem;margin:0;color:var(--muted);}
+  .stat{font-size:2.4rem;color:var(--accent2);font-weight:700;}
+  .stat-label{font-size:.95rem;color:var(--muted);}
+  .badge{display:inline-block;background:var(--accent);color:#06140f;border-radius:20px;padding:.25rem .8rem;font-size:.8rem;font-weight:700;margin-right:.5rem;}
+  .footer{position:absolute;bottom:2vh;left:8vw;color:var(--muted);font-size:.8rem;letter-spacing:.05em;}
+  .pagenum{position:absolute;bottom:2vh;right:8vw;color:var(--muted);font-size:.8rem;}
+  table{width:100%;border-collapse:collapse;margin-top:1rem;}
+  td,th{border:1px solid var(--line);padding:.6rem .8rem;text-align:left;font-size:1rem;color:var(--muted);}
+  th{color:var(--accent);}
+  .nav{position:fixed;bottom:0;left:0;width:100%;display:flex;justify-content:center;gap:1rem;padding:1rem;z-index:10;}
+  .nav button{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem;}
+  .nav button:hover{background:var(--line);}
+  .center{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;height:100%;}
+  ul.clean{list-style:none;padding:0;margin:1rem 0;}
+  ul.clean li{font-size:1.15rem;color:var(--muted);margin-bottom:.6rem;padding-left:1.4rem;position:relative;}
+  ul.clean li::before{content:"—";position:absolute;left:0;color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="slide active">
+    <div class="center">
+      <div class="kicker">Seed-Stage PropTech · Ethiopia → Africa</div>
+      <h1>Gojo Africa</h1>
+      <div class="tagline">The trusted housing operating system for Africa.</div>
+      <p>Not a listings site. A complete ecosystem — search, verification, neighborhood intelligence, diaspora transactions, and home services, unified by AI.</p>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">1 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>The Problem</h2>
+    <ul class="clean">
+      <li><strong>Trust deficit</strong> — duplicated, stale, and fraudulent listings; no way to verify a landlord or a photo.</li>
+      <li><strong>Information blackout</strong> — zero visibility into safety, utilities reliability, or true cost of living at an address.</li>
+      <li><strong>Dumb search</strong> — keyword filters, no understanding of budget reality or lifestyle fit, no explanation of results.</li>
+      <li><strong>Fragmented services</strong> — movers, cleaners, internet setup sourced informally with no accountability.</li>
+      <li><strong>Diaspora locked out</strong> — billions in remittances, almost no reliable way to view, verify, finance, or close on property remotely.</li>
+    </ul>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">2 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Our Solution</h2>
+    <p>One platform, one trust graph, one AI layer — covering the entire housing journey instead of just the listing.</p>
+    <div class="grid cols-4">
+      <div class="card"><h3>Verify</h3><p>AI + human verification, trust scores, scam detection on every listing and landlord.</p></div>
+      <div class="card"><h3>Understand</h3><p>Neighborhood Intelligence: safety, utilities, internet, transit, schools, cost of living.</p></div>
+      <div class="card"><h3>Find</h3><p>AI House Hunter: conversational search with explainable, personalized recommendations.</p></div>
+      <div class="card"><h3>Transact</h3><p>Diaspora Concierge: remote tours, video inspection, remote signing, cross-border payment.</p></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">3 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Eight Modules, One Ecosystem</h2>
+    <div class="grid cols-4">
+      <div class="card"><h3>1. Marketplace</h3><p>Rentals, sales, commercial, student housing, shared accommodation.</p></div>
+      <div class="card"><h3>2. AI House Hunter</h3><p>Conversational search, budget analysis, lifestyle matching, explainability.</p></div>
+      <div class="card"><h3>3. Neighborhood Intel</h3><p>Safety, utilities, internet, transit, schools/hospitals, cost of living.</p></div>
+      <div class="card"><h3>4. Verified Property</h3><p>Image verification, human review, trust score, scam detection.</p></div>
+      <div class="card"><h3>5. Housemate Matching</h3><p>Compatibility scoring, messaging, shared budget planning.</p></div>
+      <div class="card"><h3>6. Diaspora Concierge</h3><p>Virtual tours, video inspection, remote signing, intl. payments.</p></div>
+      <div class="card"><h3>7. Home Services</h3><p>Movers, cleaners, furniture, internet, maintenance, insurance.</p></div>
+      <div class="card"><h3>8. AI Analytics</h3><p>Rental trends, price prediction, area forecasting, investment picks.</p></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">4 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Market: Ethiopia is the Right First Market</h2>
+    <div class="grid cols-4">
+      <div class="card"><div class="stat">$1.15T</div><div class="stat-label">Projected residential real estate market value, 2025</div></div>
+      <div class="card"><div class="stat">140K+</div><div class="stat-label">Annual housing unit deficit in Addis Ababa</div></div>
+      <div class="card"><div class="stat">6.2%</div><div class="stat-label">Annual market growth rate</div></div>
+      <div class="card"><div class="stat">4.4%</div><div class="stat-label">Addis Ababa urban population growth rate / year</div></div>
+    </div>
+    <p style="margin-top:1.5rem;">Sources: Statista Real Estate Outlook; The Africanvestor (2026).</p>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">5 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Diaspora Capital Has No Housing Rail — Yet</h2>
+    <div class="grid cols-2">
+      <div class="card"><div class="stat">$7.17B</div><div class="stat-label">Remittances received by Ethiopia, FY2024/25</div></div>
+      <div class="card"><div class="stat">$8B</div><div class="stat-label">Government remittance target, FY2025/26</div></div>
+    </div>
+    <p style="margin-top:1.5rem;">Property purchase is one of the top uses of diaspora savings — but viewing, verifying, paying, and signing remains manual and relationship-dependent. That's the gap our Diaspora Concierge module is built to close.</p>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">6 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Why Now: Digital Rails Have Crossed the Threshold</h2>
+    <div class="grid cols-4">
+      <div class="card"><div class="stat">136M</div><div class="stat-label">Mobile money accounts, 2025 (up from &lt;1M in 2020)</div></div>
+      <div class="card"><div class="stat">50M+</div><div class="stat-label">Telebirr subscribers</div></div>
+      <div class="card"><div class="stat">~21%</div><div class="stat-label">Internet penetration and rising (28M+ users)</div></div>
+      <div class="card"><div class="stat">5</div><div class="stat-label">Major listing competitors — none offer AI, verification, or diaspora tools</div></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">7 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Competitive Landscape</h2>
+    <table>
+      <tr><th>Platform</th><th>Listings</th><th>AI Search</th><th>Verification / Trust</th><th>Diaspora Tools</th></tr>
+      <tr><td>Loozap</td><td>~75,000</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><td>Jiji.com.et</td><td>~21,000+</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><td>Ethiopia Property Centre</td><td>Mid-size</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><td><strong>Gojo Africa</strong></td><td>Growing</td><td><strong>Yes</strong></td><td><strong>Yes</strong></td><td><strong>Yes</strong></td></tr>
+    </table>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">8 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Business Model — Six Revenue Streams</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Featured listings</h3><p>Pay for visibility — live from day one.</p></div>
+      <div class="card"><h3>Agent/landlord subscriptions</h3><p>Tiered plans bundling listing slots, analytics, priority verification.</p></div>
+      <div class="card"><h3>Transaction fees</h3><p>% of closed rentals/sales facilitated in-app.</p></div>
+      <div class="card"><h3>Home service commissions</h3><p>Take rate on movers, cleaners, ISPs, insurance bookings.</p></div>
+      <div class="card"><h3>Financing referrals</h3><p>Referral fees from bank/microfinance partners.</p></div>
+      <div class="card"><h3>Advertising</h3><p>Sponsored placement for furniture, banks, telecoms at high-intent moments.</p></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">9 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Technology</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Client</h3><p>Flutter mobile (iOS/Android) · Next.js web</p></div>
+      <div class="card"><h3>Backend</h3><p>FastAPI · PostgreSQL + PostGIS · Redis · Celery workers</p></div>
+      <div class="card"><h3>AI Layer</h3><p>OpenAI-powered conversational search, recommendations, explainability, image verification</p></div>
+      <div class="card"><h3>Infrastructure</h3><p>AWS: ECS Fargate, RDS, ElastiCache, S3, CloudFront, Rekognition</p></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">10 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>Roadmap</h2>
+    <table>
+      <tr><th>Phase</th><th>Timeline</th><th>Focus</th></tr>
+      <tr><td>0 — Foundation</td><td>Months 0–3</td><td>Marketplace, verification v1, Addis Ababa supply onboarding</td></tr>
+      <tr><td>1 — Trust & AI</td><td>Months 3–9</td><td>AI House Hunter, trust score live, diaspora pilot</td></tr>
+      <tr><td>2 — Ecosystem</td><td>Months 9–18</td><td>Housemate matching, home services, national rollout</td></tr>
+      <tr><td>3 — Intelligence</td><td>Months 18–24</td><td>Price prediction, area forecasting, scaled diaspora signing</td></tr>
+      <tr><td>4 — Regional</td><td>Months 24+</td><td>First non-Ethiopia market launch</td></tr>
+    </table>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">11 / 13</div>
+  </section>
+
+  <section class="slide">
+    <h2>The Ask</h2>
+    <p>Raising a seed round to fund Phase 0–1: engineering team (backend, AI, mobile, web), Addis Ababa field operations for supply onboarding and human verification, initial AWS/OpenAI infrastructure, and the diaspora pilot launch in key remittance corridors (US, Europe, Gulf).</p>
+    <div class="grid cols-4" style="margin-top:1.5rem;">
+      <div class="card"><h3>Engineering</h3><p>Core team across backend, AI, mobile, web</p></div>
+      <div class="card"><h3>Field Ops</h3><p>Supply onboarding & verification team in Addis Ababa</p></div>
+      <div class="card"><h3>Infrastructure</h3><p>AWS, OpenAI, third-party verification & payment partners</p></div>
+      <div class="card"><h3>Go-to-Market</h3><p>Diaspora community partnerships, agent acquisition</p></div>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">12 / 13</div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="kicker">Vision</div>
+      <h1 style="font-size:2.6rem;">The default starting point for housing in Africa.</h1>
+      <p>Trust, not listing volume, is the scarce resource in African housing markets. Gojo Africa manufactures trust at scale — starting in Ethiopia, built to travel.</p>
+    </div>
+    <div class="footer">Gojo Africa · Confidential</div><div class="pagenum">13 / 13</div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button onclick="go(-1)">← Prev</button>
+  <button onclick="go(1)">Next →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let idx = 0;
+  function show(i){
+    slides[idx].classList.remove('active');
+    idx = (i + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+  }
+  function go(delta){ show(idx + delta); }
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === ' ') go(1);
+    if(e.key === 'ArrowLeft') go(-1);
+  });
+</script>
+</body>
+</html>
