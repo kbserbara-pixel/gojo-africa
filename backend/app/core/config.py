@@ -13,6 +13,14 @@ class Settings(BaseSettings):
     aws_s3_bucket: str = "gojo-africa-media"
     aws_region: str = "eu-west-1"
     environment: str = "development"
+    # Comma-separated list of allowed origins for CORS. Defaults to local dev
+    # only -- set this to the real production domain(s) (e.g. the Vercel URL)
+    # via the CORS_ORIGINS env var once deployed publicly.
+    cors_origins: str = "http://localhost:3000"
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
 
 settings = Settings()
