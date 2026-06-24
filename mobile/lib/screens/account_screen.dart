@@ -18,13 +18,18 @@ class _AccountScreenState extends State<AccountScreen> {
   bool _busy = false;
   String? _error;
 
-  // Login fields
-  final _loginPhoneController = TextEditingController();
+  // Login fields -- a single field accepts either an email or a phone
+  // number; the backend figures out which based on whether it sees an "@".
+  final _loginIdentifierController = TextEditingController();
   final _loginPasswordController = TextEditingController();
 
-  // Register fields
+  // Register fields -- phone and email are both optional, but at least one
+  // is required (checked in _register() before the API call). No password
+  // complexity is enforced anywhere, by design -- short, simple passwords
+  // are fine.
   final _regNameController = TextEditingController();
   final _regPhoneController = TextEditingController();
+  final _regEmailController = TextEditingController();
   final _regPasswordController = TextEditingController();
   String _regRole = 'renter';
 
@@ -108,7 +113,7 @@ class _AccountScreenState extends State<AccountScreen> {
     });
     try {
       final tokenRes = await ApiClient.post('/auth/login', {
-        'phone': _loginPhoneController.text,
+        'identifier': _loginIdentifierController.text.trim(),
         'password': _loginPasswordController.text,
       });
       await ApiClient.saveToken(tokenRes['access_token']);
@@ -126,6 +131,14 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Future<void> _register() async {
+    final t = AppLocalizations.of(context)!;
+    final phone = _regPhoneController.text.trim();
+    final email = _regEmailController.text.trim();
+    if (phone.isEmpty && email.isEmpty) {
+      setState(() => _error = t.contactRequiredError);
+      return;
+    }
+
     setState(() {
       _busy = true;
       _error = null;
@@ -133,14 +146,17 @@ class _AccountScreenState extends State<AccountScreen> {
     try {
       await ApiClient.post('/auth/register', {
         'full_name': _regNameController.text,
-        'phone': _regPhoneController.text,
+        if (phone.isNotEmpty) 'phone': phone,
+        if (email.isNotEmpty) 'email': email,
         'password': _regPasswordController.text,
         'role': _regRole,
         // Save the language the user registered in as their preference.
         'locale': LocaleController.instance.locale.value.languageCode,
       });
+      // Auto-login right after registration. Use whichever of email/phone
+      // was actually provided as the identifier.
       final tokenRes = await ApiClient.post('/auth/login', {
-        'phone': _regPhoneController.text,
+        'identifier': email.isNotEmpty ? email : phone,
         'password': _regPasswordController.text,
       });
       await ApiClient.saveToken(tokenRes['access_token']);
@@ -194,6 +210,8 @@ class _AccountScreenState extends State<AccountScreen> {
     }
 
     if (_loggedIn == true && _user != null) {
+      final phone = _user!['phone'] as String?;
+      final email = _user!['email'] as String?;
       return Scaffold(
         appBar: AppBar(title: Text(t.accountTitle)),
         body: Padding(
@@ -203,7 +221,8 @@ class _AccountScreenState extends State<AccountScreen> {
             children: [
               Text(t.greeting(_user!['full_name'] ?? ''), style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 8),
-              Text(t.phoneLine(_user!['phone'] ?? '')),
+              if (phone != null && phone.isNotEmpty) Text(t.phoneLine(phone)),
+              if (email != null && email.isNotEmpty) Text(t.emailLine(email)),
               Text(t.roleLine(_user!['role'] ?? '')),
               Text(t.trustScoreLine('${_user!['trust_score']}')),
               const SizedBox(height: 16),
@@ -233,9 +252,18 @@ class _AccountScreenState extends State<AccountScreen> {
                     decoration: InputDecoration(labelText: t.fullNameLabel, border: const OutlineInputBorder()),
                   ),
                   const SizedBox(height: 12),
+                  Text(t.contactHint, style: Theme.of(context).textTheme.bodySmall),
+                  const SizedBox(height: 8),
                   TextField(
                     controller: _regPhoneController,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(labelText: t.phoneNumberLabel, border: const OutlineInputBorder()),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _regEmailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(labelText: t.emailLabel, border: const OutlineInputBorder()),
                   ),
                   const SizedBox(height: 12),
                   TextField(
@@ -268,8 +296,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 ]
               : [
                   TextField(
-                    controller: _loginPhoneController,
-                    decoration: InputDecoration(labelText: t.phoneNumberLabel, border: const OutlineInputBorder()),
+                    controller: _loginIdentifierController,
+                    decoration: InputDecoration(labelText: t.identifierLabel, border: const OutlineInputBorder()),
                   ),
                   const SizedBox(height: 12),
                   TextField(

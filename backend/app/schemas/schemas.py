@@ -1,12 +1,14 @@
 from datetime import datetime
 from typing import Optional, Any, Dict, List
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, model_validator
 
 
 class UserCreate(BaseModel):
-    phone: str
+    phone: Optional[str] = None
     email: Optional[EmailStr] = None
+    # No complexity rule on purpose -- short, simple passwords like "1234" or
+    # "12ab" must keep working. Don't add a regex/min_length validator here.
     password: str
     full_name: str
     role: str = "renter"
@@ -14,11 +16,17 @@ class UserCreate(BaseModel):
     is_diaspora: bool = False
     country_of_residence: Optional[str] = None
 
+    @model_validator(mode="after")
+    def require_phone_or_email(self) -> "UserCreate":
+        if not self.phone and not self.email:
+            raise ValueError("Provide an email address or a phone number")
+        return self
+
 
 class UserOut(BaseModel):
     id: str
-    phone: str
-    email: Optional[str]
+    phone: Optional[str] = None
+    email: Optional[str] = None
     full_name: str
     role: str
     locale: str
@@ -35,7 +43,9 @@ class Token(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    phone: str
+    # Whatever the user typed -- an email address or a phone number (any
+    # format/country code). The login endpoint figures out which it is.
+    identifier: str
     password: str
 
 

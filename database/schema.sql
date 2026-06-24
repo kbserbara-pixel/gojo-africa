@@ -25,7 +25,10 @@ CREATE TYPE user_role AS ENUM ('renter', 'buyer', 'landlord', 'agent', 'provider
 
 CREATE TABLE users (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    phone           VARCHAR(20) UNIQUE NOT NULL,
+    -- Sign-up/login accepts either an email or a phone number (no SMS/email
+    -- verification step) -- so neither column alone is NOT NULL, but the
+    -- CHECK constraint below requires at least one of them.
+    phone           VARCHAR(20) UNIQUE,
     email           VARCHAR(255) UNIQUE,
     password_hash   VARCHAR(255) NOT NULL,
     full_name       VARCHAR(255) NOT NULL,
@@ -36,8 +39,21 @@ CREATE TABLE users (
     trust_score     NUMERIC(5,2) DEFAULT 0.0,
     verification_status VARCHAR(20) DEFAULT 'unverified',
     created_at      TIMESTAMPTZ DEFAULT now(),
-    updated_at      TIMESTAMPTZ DEFAULT now()
+    updated_at      TIMESTAMPTZ DEFAULT now(),
+    CONSTRAINT users_phone_or_email CHECK (phone IS NOT NULL OR email IS NOT NULL)
 );
+
+-- ============ MIGRATION: already-provisioned Supabase database ============
+-- If `users` already exists from an earlier run of this file (phone was
+-- NOT NULL), run this block once in Supabase's SQL Editor to switch to
+-- email-or-phone sign-in without losing existing rows:
+--
+--   ALTER TABLE users ALTER COLUMN phone DROP NOT NULL;
+--   ALTER TABLE users ADD CONSTRAINT users_phone_or_email
+--     CHECK (phone IS NOT NULL OR email IS NOT NULL);
+--
+-- Safe to run even though every existing row already has a phone number --
+-- the CHECK only blocks rows with neither, it doesn't touch existing data.
 
 -- ============ NEIGHBORHOODS ============
 CREATE TABLE neighborhoods (

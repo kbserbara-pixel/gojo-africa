@@ -9,7 +9,7 @@ import { useLanguage } from "../../lib/i18n/LanguageContext";
 export default function LoginPage() {
   const router = useRouter();
   const { t, setLocale } = useLanguage();
-  const [phone, setPhone] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const { access_token } = await apiPost<{ access_token: string }>("/auth/login", {
-        phone,
+        identifier,
         password,
       });
       const user = await apiGetAuth<AuthUser>("/auth/me", access_token);
@@ -40,14 +40,14 @@ export default function LoginPage() {
       <h1 className="text-2xl font-bold text-emerald-800 mb-6">{t("loginPage.title")}</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">{t("loginPage.phone")}</label>
+          <label className="block text-sm font-medium mb-1">{t("loginPage.identifier")}</label>
           <input
-            type="tel"
+            type="text"
             required
             className="w-full border rounded-lg px-3 py-2"
-            placeholder="+251 9XX XXX XXX"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            placeholder={t("loginPage.identifierPlaceholder")}
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
           />
         </div>
         <div>

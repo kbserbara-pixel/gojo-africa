@@ -24,12 +24,20 @@ export default function RegisterPage() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+
+    const trimmedPhone = phone.trim();
+    const trimmedEmail = email.trim();
+    if (!trimmedPhone && !trimmedEmail) {
+      setError(t("registerPage.contactRequiredError"));
+      return;
+    }
+
     setLoading(true);
     try {
       await apiPost("/auth/register", {
         full_name: fullName,
-        phone,
-        email: email || undefined,
+        phone: trimmedPhone || undefined,
+        email: trimmedEmail || undefined,
         password,
         role,
         locale, // save the language the user registered in as their preference
@@ -38,8 +46,9 @@ export default function RegisterPage() {
       });
 
       // Auto-login right after registration so the user lands signed in.
+      // Use whichever of email/phone was actually provided as the identifier.
       const { access_token } = await apiPost<{ access_token: string }>("/auth/login", {
-        phone,
+        identifier: trimmedEmail || trimmedPhone,
         password,
       });
       const user = await apiGetAuth<AuthUser>("/auth/me", access_token);
@@ -66,11 +75,11 @@ export default function RegisterPage() {
             onChange={(e) => setFullName(e.target.value)}
           />
         </div>
+        <p className="text-xs text-gray-500">{t("registerPage.contactHint")}</p>
         <div>
           <label className="block text-sm font-medium mb-1">{t("registerPage.phone")}</label>
           <input
             type="tel"
-            required
             className="w-full border rounded-lg px-3 py-2"
             placeholder="+251 9XX XXX XXX"
             value={phone}
@@ -91,7 +100,7 @@ export default function RegisterPage() {
           <input
             type="password"
             required
-            minLength={6}
+            minLength={4}
             className="w-full border rounded-lg px-3 py-2"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

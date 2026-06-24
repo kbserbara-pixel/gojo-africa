@@ -128,6 +128,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String emailLine(String email) {
+    return 'Email: $email';
+  }
+
+  @override
   String roleLine(String role) {
     return 'Role: $role';
   }
@@ -150,7 +155,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fullNameLabel => 'Full name';
 
   @override
-  String get phoneNumberLabel => 'Phone number';
+  String get phoneNumberLabel => 'Phone number (optional)';
+
+  @override
+  String get identifierLabel => 'Email or phone number';
+
+  @override
+  String get emailLabel => 'Email (optional)';
+
+  @override
+  String get contactHint => 'Provide an email, a phone number, or both.';
+
+  @override
+  String get contactRequiredError => 'Enter an email or a phone number.';
 
   @override
   String get passwordLabel => 'Password';
@@ -194,7 +211,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registerError =>
-      'Could not create account -- phone may already be registered.';
+      'Could not create account -- that email or phone may already be registered.';
 
   @override
   String get quoteOfTheDay => 'Quote of the Day';

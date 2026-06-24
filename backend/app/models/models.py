@@ -26,7 +26,11 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(String, primary_key=True, default=gen_uuid)
-    phone = Column(String(20), unique=True, nullable=False)
+    # Either phone or email (or both) identifies a user -- enforced at the
+    # application layer (UserCreate validator), not a DB NOT NULL, since
+    # exactly one of the two being required would block sign-up with the
+    # other. Both stay unique so whichever one is set can't collide.
+    phone = Column(String(20), unique=True, nullable=True)
     email = Column(String(255), unique=True, nullable=True)
     password_hash = Column(String(255), nullable=False)
     full_name = Column(String(255), nullable=False)

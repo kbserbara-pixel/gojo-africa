@@ -17,3 +17,7 @@ python-multipart==0.0.9
 # needs Postgres dev headers that most Windows/Python setups don't have):
 #   pip install psycopg2-binary --only-binary :all:
 psycopg2-binary==2.9.9
+
+# Phone number parsing/normalization for email-or-phone login & sign-up
+# (recognizes country codes, e.g. +251.../+1.../+44..., not just local format).
+phonenumbers>=8.13.0

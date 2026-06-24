@@ -314,6 +314,12 @@ abstract class AppLocalizations {
   /// **'Phone: {phone}'**
   String phoneLine(String phone);
 
+  /// No description provided for @emailLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Email: {email}'**
+  String emailLine(String email);
+
   /// No description provided for @roleLine.
   ///
   /// In en, this message translates to:
@@ -353,8 +359,32 @@ abstract class AppLocalizations {
   /// No description provided for @phoneNumberLabel.
   ///
   /// In en, this message translates to:
-  /// **'Phone number'**
+  /// **'Phone number (optional)'**
   String get phoneNumberLabel;
+
+  /// No description provided for @identifierLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email or phone number'**
+  String get identifierLabel;
+
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email (optional)'**
+  String get emailLabel;
+
+  /// No description provided for @contactHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide an email, a phone number, or both.'**
+  String get contactHint;
+
+  /// No description provided for @contactRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an email or a phone number.'**
+  String get contactRequiredError;
 
   /// No description provided for @passwordLabel.
   ///
@@ -437,7 +467,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerError.
   ///
   /// In en, this message translates to:
-  /// **'Could not create account -- phone may already be registered.'**
+  /// **'Could not create account -- that email or phone may already be registered.'**
   String get registerError;
 
   /// No description provided for @quoteOfTheDay.

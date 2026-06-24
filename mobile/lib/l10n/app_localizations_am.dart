@@ -125,6 +125,11 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
+  String emailLine(String email) {
+    return 'ኢሜይል፡ $email';
+  }
+
+  @override
   String roleLine(String role) {
     return 'ደረጃ፡ $role';
   }
@@ -147,7 +152,19 @@ class AppLocalizationsAm extends AppLocalizations {
   String get fullNameLabel => 'ሙሉ ስም';
 
   @override
-  String get phoneNumberLabel => 'የስልክ ቁጥር';
+  String get phoneNumberLabel => 'የስልክ ቁጥር (አማራጭ)';
+
+  @override
+  String get identifierLabel => 'ኢሜይል ወይም ስልክ ቁጥር';
+
+  @override
+  String get emailLabel => 'ኢሜይል (አማራጭ)';
+
+  @override
+  String get contactHint => 'ኢሜይል ወይም ስልክ ቁጥር ያስገቡ (ቢያንስ አንዱን)።';
+
+  @override
+  String get contactRequiredError => 'እባክዎ ኢሜይል ወይም ስልክ ቁጥር ያስገቡ።';
 
   @override
   String get passwordLabel => 'የመግቢያ ቁጥር';
@@ -190,7 +207,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get registerError =>
-      'መለያ መክፈት አልተቻለም። ይህ ስልክ ቁጥር ቀደም ሲል ተመዝግቦ ሊሆን ይችላል።';
+      'መለያ መክፈት አልተቻለም። ይህ ኢሜይል ወይም ስልክ ቁጥር ቀደም ሲል ተመዝግቦ ሊሆን ይችላል።';
 
   @override
   String get quoteOfTheDay => 'የዕለቱ ጥቅስ';
