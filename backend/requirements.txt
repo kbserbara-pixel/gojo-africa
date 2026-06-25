@@ -5,6 +5,13 @@ pydantic[email]>=2.9.2
 pydantic-settings>=2.5.2
 python-dotenv==1.0.1
 passlib[bcrypt]==1.7.4
+# passlib 1.7.4 (unmaintained since 2020) breaks on bcrypt>=4.1 -- it calls a
+# bcrypt internal attribute (`__about__.__version__`) that newer bcrypt
+# releases removed, which makes every single password hash/verify call raise
+# "password cannot be longer than 72 bytes" regardless of actual password
+# length (it's failing in passlib's own internal self-test, not on real
+# input). Pin bcrypt itself to the last version passlib still works with.
+bcrypt==4.0.1
 python-jose[cryptography]==3.3.0
 redis==5.0.8
 celery==5.4.0
