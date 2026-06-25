@@ -19,7 +19,10 @@ def verify_password(password: str, password_hash: str) -> bool:
 
 def create_access_token(subject: str) -> str:
     expire = datetime.utcnow() + timedelta(minutes=settings.access_token_expire_minutes)
-    payload = {"sub": subject, "exp": expire}
+    # str() guards against callers passing a Postgres uuid.UUID object
+    # (e.g. user.id) directly -- json.dumps can't serialize UUID on its own,
+    # which would otherwise crash every login with a 500.
+    payload = {"sub": str(subject), "exp": expire}
     return jwt.encode(payload, settings.jwt_secret, algorithm=settings.jwt_algorithm)
 
 

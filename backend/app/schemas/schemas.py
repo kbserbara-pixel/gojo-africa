@@ -1,7 +1,15 @@
 from datetime import datetime
-from typing import Optional, Any, Dict, List
+from typing import Annotated, Optional, Any, Dict, List
 
-from pydantic import BaseModel, EmailStr, model_validator
+from pydantic import BaseModel, BeforeValidator, EmailStr, model_validator
+
+# Postgres UUID primary-key columns come back from psycopg2 as Python
+# uuid.UUID objects, not str -- even though the ORM models declare them as
+# generic String columns. Pydantic's strict validation then rejects them
+# ("Input should be a valid string") when serializing response models. This
+# coerces either a str or a UUID into a str transparently, wherever an
+# id-like field is built from an ORM object instead of plain user input.
+StrId = Annotated[str, BeforeValidator(str)]
 
 
 class UserCreate(BaseModel):
@@ -24,7 +32,7 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
-    id: str
+    id: StrId
     phone: Optional[str] = None
     email: Optional[str] = None
     full_name: str
@@ -66,8 +74,8 @@ class PropertyCreate(BaseModel):
 
 
 class PropertyOut(BaseModel):
-    id: str
-    owner_id: str
+    id: StrId
+    owner_id: StrId
     listing_type: str
     title: str
     description: Optional[str] = None
@@ -77,7 +85,7 @@ class PropertyOut(BaseModel):
     bathrooms: Optional[int] = None
     area_sqm: Optional[float] = None
     address: Optional[str] = None
-    neighborhood_id: Optional[str] = None
+    neighborhood_id: Optional[StrId] = None
     status: str
     trust_score: float
     scam_risk_score: float
@@ -105,7 +113,7 @@ class AIHunterResult(BaseModel):
 
 
 class NeighborhoodOut(BaseModel):
-    id: str
+    id: StrId
     name: str
     city: str
     safety_score: Optional[float]
