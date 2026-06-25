@@ -45,15 +45,33 @@ CREATE TABLE users (
 
 -- ============ MIGRATION: already-provisioned Supabase database ============
 -- If `users` already exists from an earlier run of this file (phone was
--- NOT NULL), run this block once in Supabase's SQL Editor to switch to
--- email-or-phone sign-in without losing existing rows:
+-- NOT NULL and there was no `email` column at all), run this block once in
+-- Supabase's SQL Editor to switch to email-or-phone sign-in without losing
+-- existing rows:
 --
+--   ALTER TABLE users ADD COLUMN IF NOT EXISTS email VARCHAR(255) UNIQUE;
 --   ALTER TABLE users ALTER COLUMN phone DROP NOT NULL;
+--   ALTER TABLE users DROP CONSTRAINT IF EXISTS users_phone_or_email;
 --   ALTER TABLE users ADD CONSTRAINT users_phone_or_email
 --     CHECK (phone IS NOT NULL OR email IS NOT NULL);
 --
 -- Safe to run even though every existing row already has a phone number --
 -- the CHECK only blocks rows with neither, it doesn't touch existing data.
+-- The DROP CONSTRAINT IF EXISTS before re-adding it makes this block safe to
+-- re-run if you already ran an earlier (incomplete) version of it.
+
+-- ============ MIGRATION: contact_phone + listing photos ============
+-- The live database was actually created by SQLAlchemy's create_all() (see
+-- backend/app/main.py), which only creates missing tables -- it never alters
+-- an existing one. So adding a field to the ORM model (models.py) does NOT
+-- add the column to the already-existing `properties` table. Run this once
+-- in Supabase's SQL Editor:
+--
+--   ALTER TABLE properties ADD COLUMN IF NOT EXISTS contact_phone VARCHAR(30);
+--
+-- The `property_media` table (for listing photos) is a brand new table, so
+-- create_all() *will* create it automatically on the backend's next deploy
+-- -- no manual SQL needed for that one.
 
 -- ============ NEIGHBORHOODS ============
 CREATE TABLE neighborhoods (
@@ -93,6 +111,7 @@ CREATE TABLE properties (
     area_sqm        NUMERIC(10,2),
     address         VARCHAR(500),
     location        GEOGRAPHY(POINT),
+    contact_phone   VARCHAR(30),
     status          listing_status NOT NULL DEFAULT 'draft',
     trust_score     NUMERIC(5,2) DEFAULT 0.0,
     scam_risk_score NUMERIC(5,2) DEFAULT 0.0,

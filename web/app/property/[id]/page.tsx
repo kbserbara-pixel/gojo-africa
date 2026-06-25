@@ -35,6 +35,36 @@ export default async function PropertyDetailPage({ params }: { params: { id: str
       )}
       {property.address && <p className="text-sm text-gray-500 mt-1">{property.address}</p>}
       {property.description && <p className="mt-4">{property.description}</p>}
+
+      {property.media && property.media.length > 0 && (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+          {property.media.map((m: { id: string; url: string }) => (
+            <img key={m.id} src={m.url} alt={property.title} className="w-full h-40 object-cover rounded-lg border" />
+          ))}
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        {property.contact_phone && (
+          <a
+            href={`tel:${property.contact_phone}`}
+            className="bg-emerald-700 text-white rounded-lg px-4 py-2 text-sm inline-block"
+          >
+            {t(locale, "propertyDetail.call", { phone: property.contact_phone })}
+          </a>
+        )}
+        {property.latitude != null && property.longitude != null && (
+          <a
+            href={`https://www.openstreetmap.org/?mlat=${property.latitude}&mlon=${property.longitude}#map=16/${property.latitude}/${property.longitude}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-emerald-700 text-emerald-700 rounded-lg px-4 py-2 text-sm inline-block"
+          >
+            {t(locale, "propertyDetail.viewOnMap")}
+          </a>
+        )}
+      </div>
+
       <div className="mt-6">
         <NeighborhoodScore neighborhoodId={property.neighborhood_id} />
       </div>

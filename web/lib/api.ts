@@ -48,3 +48,16 @@ export async function apiPostAuth<T>(path: string, body: unknown, token: string)
   if (!res.ok) return parseError(res, path);
   return res.json();
 }
+
+// File uploads (e.g. listing photos) -- deliberately doesn't set
+// Content-Type so the browser fills in the multipart/form-data boundary
+// itself; setting it manually breaks the upload.
+export async function apiUploadAuth<T>(path: string, formData: FormData, token: string): Promise<T> {
+  const res = await fetch(`${API_URL}${path}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body: formData,
+  });
+  if (!res.ok) return parseError(res, path);
+  return res.json();
+}

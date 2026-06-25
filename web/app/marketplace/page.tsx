@@ -10,6 +10,7 @@ interface PropertyOut {
   currency: string;
   listing_type: string;
   trust_score: number;
+  media?: { id: string; url: string }[];
 }
 
 export default async function MarketplacePage() {

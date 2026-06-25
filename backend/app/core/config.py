@@ -12,6 +12,14 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     aws_s3_bucket: str = "gojo-africa-media"
     aws_region: str = "eu-west-1"
+    # Listing photo storage: Supabase Storage (same project as the Postgres
+    # database, so no separate AWS account is needed). supabase_url is the
+    # project URL (e.g. https://xxxx.supabase.co), and the service role key
+    # (Project Settings -> API -> service_role) is used server-side only --
+    # never expose it to the frontend.
+    supabase_url: str = ""
+    supabase_service_role_key: str = ""
+    supabase_storage_bucket: str = "property-media"
     environment: str = "development"
     # Comma-separated list of allowed origins for CORS. Defaults to local dev
     # only -- set this to the real production domain(s) (e.g. the Vercel URL)

@@ -81,6 +81,10 @@ class Property(Base):
     address = Column(String(500), nullable=True)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
+    # Phone number renters/buyers should call about this specific listing --
+    # separate from the owner's account phone since an agent may want a
+    # different number per listing.
+    contact_phone = Column(String(30), nullable=True)
     status = Column(String(20), default="draft")
     trust_score = Column(Float, default=0.0)
     scam_risk_score = Column(Float, default=0.0)

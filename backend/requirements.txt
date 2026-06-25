@@ -28,3 +28,6 @@ psycopg2-binary==2.9.9
 # Phone number parsing/normalization for email-or-phone login & sign-up
 # (recognizes country codes, e.g. +251.../+1.../+44..., not just local format).
 phonenumbers>=8.13.0
+
+# Used to upload listing photos to Supabase Storage's REST API.
+httpx>=0.27.0

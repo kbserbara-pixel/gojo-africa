@@ -71,6 +71,17 @@ class PropertyCreate(BaseModel):
     latitude: Optional[float] = None
     longitude: Optional[float] = None
     neighborhood_id: Optional[str] = None
+    # Phone number for renters/buyers to call about this listing.
+    contact_phone: Optional[str] = None
+
+
+class PropertyMediaOut(BaseModel):
+    id: StrId
+    url: str
+    media_type: str
+
+    class Config:
+        from_attributes = True
 
 
 class PropertyOut(BaseModel):
@@ -85,10 +96,14 @@ class PropertyOut(BaseModel):
     bathrooms: Optional[int] = None
     area_sqm: Optional[float] = None
     address: Optional[str] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     neighborhood_id: Optional[StrId] = None
+    contact_phone: Optional[str] = None
     status: str
     trust_score: float
     scam_risk_score: float
+    media: List[PropertyMediaOut] = []
 
     class Config:
         from_attributes = True
